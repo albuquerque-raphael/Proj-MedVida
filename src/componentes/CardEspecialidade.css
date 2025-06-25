@@ -1,0 +1,20 @@
+.card-especialidade {
+  width: 280px;
+  min-height: 160px;
+  margin: 20px;
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-especialidade:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.especialidade-nome {
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  color: #0d6efd !important;
+  margin-bottom: 10px;
+}
