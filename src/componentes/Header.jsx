@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -8,7 +9,7 @@ function Header() {
         <h2 className="text-primary">Clínica MedVida</h2>
         <nav>
           <Link to="/" className="btn btn-outline-primary me-2">Home</Link>
-          <Link to="/sobre" className="btn btn-outline-secondary">Sobre nós</Link>
+          <Link to="/servicos/Pediatria" className="btn btn-outline-secondary">Sobre nós</Link>
         </nav>
       </div>
     </header>
@@ -16,4 +17,3 @@ function Header() {
 }
 
 export default Header;
-

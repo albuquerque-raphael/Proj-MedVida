@@ -1,0 +1,52 @@
+.agendamento-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+.formulario-box {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.formulario input,
+.formulario select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.formulario button {
+  width: 100%;
+  padding: 12px;
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.formulario button:hover {
+  background-color: #023e8a;
+}
+
+.mensagem-sucesso {
+  color: green;
+  margin-top: 16px;
+  font-weight: bold;
+}
