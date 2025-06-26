@@ -1,0 +1,15 @@
+.sobre-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #eaf9fa;
+}
+
+.sobre-imagem {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}

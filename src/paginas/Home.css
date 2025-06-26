@@ -1,0 +1,66 @@
+.home-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.imagem-fundo {
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Container dos botões clicáveis */
+.botoes-cards {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  max-width: 1100px;
+  transform: translateX(-50%);
+  height: 100%;
+}
+
+.card-btn {
+  position: absolute;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* --- POSIÇÃO E TAMANHO DOS BOTÕES --- */
+
+/* Pediatria cobrindo do topo do card até o fim */
+.pediatria {
+  top: 36%;
+  left: 5.5%;
+  width: 28%;
+  height: 54%;
+}
+
+/* Clínico Geral */
+.clinico {
+  top: 36%;
+  left: 36.5%;
+  width: 28%;
+  height: 54%;
+}
+
+/* Cardiologia */
+.cardio {
+  top: 36%;
+  left: 67.5%;
+  width: 28%;
+  height: 54%;
+}
+
+.home-container {
+  background-color: #eaf9fa;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
