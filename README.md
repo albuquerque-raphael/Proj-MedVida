@@ -17,3 +17,8 @@ Este projeto implementa um sistema completo de agendamento médico com foco em u
 npm install
 npm start
 ```
+orientações:
+
+-Retirar a avaliação.
+-após preecher o fromulário e confirmar o agendamento adicionar uma mensagem de aviso embaixo: Sua consulta com "nome do médico" está agendada. Mandaremos uma mensagem de whatsapp para lembrá-lo um dia antes da consulta.
+Manter a cor da primeira e ultima tela ou procurar no canvas a sua sequência.
