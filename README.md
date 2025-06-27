@@ -1,8 +1,8 @@
-# MedVida - Sistema de Agendamento de Consultas Médicas 🏥
+# MedVida - Sistema de Agendamento de Consultas Médicas
 
 Este projeto é parte do **Trabalho de Conclusão de Curso** da **Pós-Graduação em Full Stack** da **Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio)**.
 
-## 👨‍⚕️ Sobre o Projeto
+##  Sobre o Projeto
 
 O **MedVida** é um sistema web desenvolvido com foco na experiência do usuário, permitindo:
 
@@ -12,7 +12,7 @@ O **MedVida** é um sistema web desenvolvido com foco na experiência do usuári
 - Obter confirmação de agendamento via interface.
 - Visual interativo e responsivo, inspirado em protótipo no Canva.
 
-## 🚀 Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 - **React** (Vite)
 - **React Router DOM**
@@ -22,7 +22,7 @@ O **MedVida** é um sistema web desenvolvido com foco na experiência do usuári
 - **API Externa: ViaCEP**
 - **Git & GitHub**
 
-## 🔌 Integração com API Externa
+##  Integração com API Externa
 
 A aplicação se comunica com a [API ViaCEP](https://viacep.com.br/) para buscar o endereço automaticamente a partir do CEP informado.
 
