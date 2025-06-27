@@ -1,24 +1,28 @@
+# Clínica MedVida - Agendamento de Consultas Médicas
 
-# Clínica MedVida - Sistema de Agendamento Médico
-
-Este projeto implementa um sistema completo de agendamento médico com foco em usabilidade e visual agradável.
+Bem-vindo ao projeto **Clínica MedVida**, uma aplicação web desenvolvida com **React.js** que permite aos usuários agendar consultas médicas de forma intuitiva e moderna.
 
 ## Funcionalidades
 
-- Lista dinâmica de médicos por especialidade
-- Boas-vindas e apresentação na tela de serviços
-- Calendário interativo para seleção de datas
-- Avaliação do médico após consulta
-- Layout responsivo com Bootstrap
+- Página inicial com especialidades médicas.
+- Navegação entre páginas com React Router.
+- Página de **Sobre nós** com apresentação visual da clínica.
+- Página de **Agendamento**:
+  - Seleção de médico via rota dinâmica.
+  - Imagem de fundo personalizada.
+  - Formulário com validação de campos obrigatórios.
+  - Agendamento salvo no `localStorage`.
+  - Mensagem de sucesso com confirmação via WhatsApp simulada.
+- Página personalizada para **404 - Página não encontrada**.
 
-## Instruções
+## Imagem da Interface
 
-```bash
-npm install
-npm start
-```
-orientações:
+![Clínica MedVida](./src/assets/images/SobreNos.png)
 
--Retirar a avaliação.
--após preecher o fromulário e confirmar o agendamento adicionar uma mensagem de aviso embaixo: Sua consulta com "nome do médico" está agendada. Mandaremos uma mensagem de whatsapp para lembrá-lo um dia antes da consulta.
-Manter a cor da primeira e ultima tela ou procurar no canvas a sua sequência.
+## Tecnologias Utilizadas
+
+- React.js
+- React Router DOM
+- CSS personalizado
+- LocalStorage (simulação de backend)
+- Design responsivo com layout moderno
