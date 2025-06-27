@@ -6,7 +6,7 @@ Este projeto é parte do **Trabalho de Conclusão de Curso** da **Pós-Graduaç�
 
 O **MedVida** é um sistema web desenvolvido com foco na experiência do usuário, permitindo:
 
-- Visualizar médicos e especialidades.
+- Escolher médico pela especialidade.
 - Agendar consultas por especialidade.
 - Selecionar datas e horários disponíveis.
 - Obter confirmação de agendamento via interface.
