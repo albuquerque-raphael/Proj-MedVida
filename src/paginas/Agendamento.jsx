@@ -7,6 +7,11 @@ function Agendamento() {
   const [formData, setFormData] = useState({
     nome: '',
     telefone: '',
+    cep: '',
+    endereco: '',
+    bairro: '',
+    cidade: '',
+    estado: '',
     data: '',
     horario: ''
   });
@@ -17,18 +22,55 @@ function Agendamento() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleCepChange = async (e) => {
+    const cep = e.target.value.replace(/\D/g, '');
+    setFormData({ ...formData, cep });
+
+    if (cep.length === 8) {
+      try {
+        const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const data = await response.json();
+
+        if (data.erro) {
+          setMensagem('❗ CEP não encontrado.');
+          return;
+        }
+
+        setFormData(prev => ({
+          ...prev,
+          endereco: data.logradouro,
+          bairro: data.bairro,
+          cidade: data.localidade,
+          estado: data.uf
+        }));
+      } catch (error) {
+        setMensagem('❗ Erro ao buscar o endereço pelo CEP.');
+      }
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { nome, telefone, data, horario } = formData;
+    const { nome, telefone, cep, endereco, bairro, cidade, estado, data, horario } = formData;
 
-    if (!nome || !telefone || !data || !horario) {
+    if (!nome || !telefone || !cep || !endereco || !bairro || !cidade || !estado || !data || !horario) {
       setMensagem('❗ Por favor, preencha todos os campos para validar.');
       return;
     }
 
     localStorage.setItem('agendamento', JSON.stringify(formData));
     setMensagem('✅ Consulta agendada com sucesso! Você receberá a confirmação com data e hora via WhatsApp.');
-    setFormData({ nome: '', telefone: '', data: '', horario: '' });
+    setFormData({
+      nome: '',
+      telefone: '',
+      cep: '',
+      endereco: '',
+      bairro: '',
+      cidade: '',
+      estado: '',
+      data: '',
+      horario: ''
+    });
   };
 
   const datasDisponiveis = [
@@ -45,8 +87,13 @@ function Agendamento() {
           <h2>Agende sua Consulta</h2>
           <form className="formulario" onSubmit={handleSubmit}>
             <input type="text" name="nome" placeholder="Nome" value={formData.nome} onChange={handleChange} required />
-
             <input type="tel" name="telefone" placeholder="Telefone" value={formData.telefone} onChange={handleChange} required />
+            <input type="text" name="cep" placeholder="CEP" value={formData.cep} onChange={handleCepChange} required />
+
+            <input type="text" name="endereco" placeholder="Endereço" value={formData.endereco} readOnly />
+            <input type="text" name="bairro" placeholder="Bairro" value={formData.bairro} readOnly />
+            <input type="text" name="cidade" placeholder="Cidade" value={formData.cidade} readOnly />
+            <input type="text" name="estado" placeholder="Estado" value={formData.estado} readOnly />
 
             <label className="label-select">Selecione uma data disponível:</label>
             <select name="data" value={formData.data} onChange={handleChange} required>
