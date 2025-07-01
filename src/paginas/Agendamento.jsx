@@ -1,9 +1,23 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import './Agendamento.css';
 import headerImage from '../assets/images/Agendamento.png';
 import Header from '../componentes/Header';
 
+// Lista de médicos
+const MEDICOS = [
+  { id: 1, nome: "Dra. Ana Paula", especialidade: "Cardiologia" },
+  { id: 2, nome: "Dr. João Silva", especialidade: "Pediatria" },
+  { id: 3, nome: "Dra. Maria Clara", especialidade: "Clínico Geral" }
+];
+
 function Agendamento() {
+  const { medicoId } = useParams();
+  const medicoIdNum = Number(medicoId); // converte o parâmetro da URL para número
+  const medico = MEDICOS.find(m => m.id === medicoIdNum); // busca pelo ID
+
+  const [mensagem, setMensagem] = useState('');
+
   const [formData, setFormData] = useState({
     nome: '',
     telefone: '',
@@ -13,10 +27,11 @@ function Agendamento() {
     cidade: '',
     estado: '',
     data: '',
-    horario: ''
+    horario: '',
+    especialidade: medico ? medico.especialidade : '',
+    medicoNome: medico ? medico.nome : ''
   });
 
-  const [mensagem, setMensagem] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -51,6 +66,12 @@ function Agendamento() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!medico) {
+      setMensagem('❗ Especialidade não encontrada.');
+      return;
+    }
+
     const { nome, telefone, cep, endereco, bairro, cidade, estado, data, horario } = formData;
 
     if (!nome || !telefone || !cep || !endereco || !bairro || !cidade || !estado || !data || !horario) {
@@ -58,8 +79,14 @@ function Agendamento() {
       return;
     }
 
-    localStorage.setItem('agendamento', JSON.stringify(formData));
+    const agendamentosAnteriores = JSON.parse(localStorage.getItem('agendamentos_medvida')) || [];
+    const novoAgendamento = { ...formData, id: Date.now() };
+
+    agendamentosAnteriores.push(novoAgendamento);
+    localStorage.setItem('agendamentos_medvida', JSON.stringify(agendamentosAnteriores));
+
     setMensagem('✅ Consulta agendada com sucesso! Você receberá a confirmação com data e hora via WhatsApp.');
+
     setFormData({
       nome: '',
       telefone: '',
@@ -69,7 +96,9 @@ function Agendamento() {
       cidade: '',
       estado: '',
       data: '',
-      horario: ''
+      horario: '',
+      especialidade: medico.especialidade,
+      medicoNome: medico.nome
     });
   };
 
@@ -79,12 +108,23 @@ function Agendamento() {
     { data: '2025-07-03', label: '03 de Julho' },
   ];
 
+  if (!medico) {
+    return (
+      <>
+        <Header />
+        <div className="container mt-5">
+          <h3 className="text-center text-danger">❌ Médico não encontrado.</h3>
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       <Header />
       <div className="agendamento-bg" style={{ backgroundImage: `url(${headerImage})` }}>
         <div className="formulario-box">
-          <h2>Agende sua Consulta</h2>
+          <h2>Agendamento para {medico.nome}</h2>
           <form className="formulario" onSubmit={handleSubmit}>
             <input type="text" name="nome" placeholder="Nome" value={formData.nome} onChange={handleChange} required />
             <input type="tel" name="telefone" placeholder="Telefone" value={formData.telefone} onChange={handleChange} required />
@@ -94,6 +134,8 @@ function Agendamento() {
             <input type="text" name="bairro" placeholder="Bairro" value={formData.bairro} readOnly />
             <input type="text" name="cidade" placeholder="Cidade" value={formData.cidade} readOnly />
             <input type="text" name="estado" placeholder="Estado" value={formData.estado} readOnly />
+
+            <input type="text" name="especialidade" placeholder="Especialidade" value={formData.especialidade} readOnly />
 
             <label className="label-select">Selecione uma data disponível:</label>
             <select name="data" value={formData.data} onChange={handleChange} required>

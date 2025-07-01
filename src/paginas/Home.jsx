@@ -15,9 +15,10 @@ function Home() {
         <img src={imagemFundo} alt="Especialidades" className="imagem-fundo" />
 
         <div className="botoes-cards">
-          <button className="card-btn pediatria" onClick={() => navigate('/agendamento/Pediatria')} />
-          <button className="card-btn clinico" onClick={() => navigate('/agendamento/Clínico Geral')} />
-          <button className="card-btn cardio" onClick={() => navigate('/agendamento/Cardiologia')} />
+          <button className="card-btn pediatria" onClick={() => navigate('/agendamento/2')} />
+          <button className="card-btn clinico" onClick={() => navigate('/agendamento/3')} />
+          <button className="card-btn cardio" onClick={() => navigate('/agendamento/1')} />
+
         </div>
       </div>
     </div>
