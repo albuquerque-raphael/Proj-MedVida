@@ -11,8 +11,8 @@ O MedVida é um sistema web desenvolvido com foco na experiência do usuário, p
 - Selecionar datas e horários disponíveis.
 - Obter confirmação de agendamento via interface.
 - Visual interativo e responsivo, inspirado em protótipo no Canva.
-- Visualizar todos os agendamentos já feitos, com opção de exclusão.**
-- Os dados de agendamento são armazenados e lidos via localStorage.**
+- Visualizar todos os agendamentos já feitos, com opção de exclusão.
+- Os dados de agendamento são armazenados e lidos via localStorage.
 
 ## Tecnologias Utilizadas
 
