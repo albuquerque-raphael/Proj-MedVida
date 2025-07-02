@@ -60,3 +60,47 @@
   font-weight: bold;
   font-size: 16px;
 }
+
+/* Estilo da lista de agendamentos já cadastrados */
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  background-color: #F0F8FF;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+/* Card de agendamento */
+.book-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Hover com sombra e cursor */
+.book-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* Botão excluir alinhado ao fim */
+.book-card .btn-excluir {
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+/* Responsivo: cards ocupam 100% em telas pequenas */
+@media (max-width: 768px) {
+  .book-card {
+    width: 100%;
+  }
+}

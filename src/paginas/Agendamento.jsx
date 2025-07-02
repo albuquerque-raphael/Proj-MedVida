@@ -79,7 +79,7 @@ function Agendamento() {
       return;
     }
 
-    const agendamentosAnteriores = JSON.parse(localStorage.getItem('agendamentos_medvida')) || [];
+    const agendamentosAnteriores = JSON.parse(localStorage.getItem('agendamentos_medvida')) || []; //Chama o Storage
     const novoAgendamento = { ...formData, id: Date.now() };
 
     agendamentosAnteriores.push(novoAgendamento);
