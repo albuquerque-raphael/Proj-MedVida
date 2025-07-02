@@ -8,7 +8,7 @@ function Header() {
         <h2 className="text-primary">Clínica MedVida</h2>
         <nav>
           <Link to="/" className="btn btn-outline-primary me-2">Home</Link>
-          <Link to="/consultas" className="btn btn-outline-success me-2">Agendamentos</Link> {/* ✅ novo botão */}
+          <Link to="/consultas" className="btn btn-outline-success me-2">Agendamentos</Link>
           <Link to="/sobre-nos" className="btn btn-outline-secondary">Sobre nós</Link>
         </nav>
       </div>

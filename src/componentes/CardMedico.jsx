@@ -1,19 +1,12 @@
-
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
-function CardMedico({ nome, especialidade }) {
-  const navigate = useNavigate();
-
-  const handleAgendar = () => {
-    navigate(`/agendamento/${nome}`);
-  };
-
+function CardMedico({ medico }) {
   return (
-    <div className="card mb-3 p-3 shadow-sm">
-      <h5>{nome}</h5>
-      <p>Especialidade: {especialidade}</p>
-      <button className="btn btn-success" onClick={handleAgendar}>Agendar Consulta</button>
+    <div className="card m-2 shadow-sm" style={{ width: '18rem' }}>
+      <div className="card-body">
+        <h5 className="card-title">{medico.nome}</h5>
+        <p className="card-text">Especialidade: {medico.especialidade}</p>
+      </div>
     </div>
   );
 }
