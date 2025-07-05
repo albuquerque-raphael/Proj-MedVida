@@ -74,7 +74,7 @@ function Agendamento() {
 
     const { nome, telefone, cep, endereco, bairro, cidade, estado, data, horario } = formData;
 
-    if (!nome || !telefone || !cep || !endereco || !bairro || !cidade || !estado || !data || !horario) {
+    if (!nome || !telefone || !cep || !endereco || !bairro || !cidade || !estado || !data || !horario) {  //Mensagem Condicional
       setMensagem('❗ Por favor, preencha todos os campos para validar.');
       return;
     }
@@ -83,9 +83,9 @@ function Agendamento() {
     const novoAgendamento = { ...formData, id: Date.now() };
 
     agendamentosAnteriores.push(novoAgendamento);
-    localStorage.setItem('agendamentos_medvida', JSON.stringify(agendamentosAnteriores));
+    localStorage.setItem('agendamentos_medvida', JSON.stringify(agendamentosAnteriores));     //Salva os dados no storage.js
 
-    setMensagem('✅ Consulta agendada com sucesso! Você receberá a confirmação com data e hora via WhatsApp.');
+    setMensagem('✅ Consulta agendada com sucesso! Você receberá a confirmação com data e hora via WhatsApp.'); //Exibe mensagem de sucesso
 
     setFormData({
       nome: '',
